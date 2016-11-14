@@ -7,6 +7,7 @@ import {
   View
 } from 'react-native';
 import styles from './style';
+import Triangle from 'react-native-triangle';
 
 //Read local JSON file:
 
@@ -58,7 +59,7 @@ class winNotification extends Component {
             </View>
               <Image
                 style={{width: 30, height: 30,backgroundColor: '#FFFFFF'}}
-                source={require('./picture/complogo@3x.png')} 
+                source={require('./picture/complogo.png')} 
               />
             <View style={styles.secondTeam}>
               <Text style={styles.testAway}>{customData.fixture.awayTeam.name}</Text>
@@ -69,11 +70,33 @@ class winNotification extends Component {
             </View>
           </View>
           <Text style={styles.messageBox}>
-            {'\n'}
-            {this.predictionsData()}
-            {'\n'}
-            <Text  style={{fontSize: 28}}>COLLECT {customData.currentPot}</Text>
+            {'\n'}{this.predictionsData()}
           </Text>
+          <Text  style={styles.collect}>COLLECT {customData.currentPot}</Text>
+          <View style={styles.coins}>
+            <Image
+              style={{width: 25, height: 25}}
+              source={require('./picture/iconotcoin.png')} 
+            />
+          </View>
+          <View style={styles.triangle}>
+            <Triangle width={32} height={17} color={'#303038'} direction={'down'}/>
+          </View>
+          <Text style={styles.total}>TOTAL WON</Text>
+          <View style={styles.sumCoins}>
+            <Text style={styles.sum}>+ {5*customData.currentPot}</Text>
+            <Image
+              style={{width: 53, height: 53}}
+              source={require('./picture/iconotcoin.png')} 
+            />
+          </View>
+          <View style={styles.expData}>
+            <Text style={styles.exp}>+ {10*customData.currentPot}</Text>
+            <Image
+              style={{width: 32, height: 32}}
+              source={require('./picture/iconotexp.png')} 
+            />
+          </View>
         </View>
       </Image>
     );
